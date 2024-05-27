@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='tcplib',
-    version='0.1',
+    version='0.3',
     description='That a tcp maker.',
     author='WTech',
     author_email='wangtry3417@gmail.com',
