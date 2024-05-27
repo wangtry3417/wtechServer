@@ -22,7 +22,7 @@ class createServer(object):
         pw = s.recv(1024).decode("utf-8")
         u = user.split(" ")
         p = pw.split(" ")
-        if u[0] == "AUTH-USER" and p[1] == "AUTH-PW":
+        if u[0] == "AUTH-USER" and p[0] == "AUTH-PW":
           if u[1] == self.authUser and p[1] == self.authPassword:
             print("ok")
           else:
