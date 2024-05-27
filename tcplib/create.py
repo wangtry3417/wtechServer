@@ -7,13 +7,26 @@ class createServer(object):
     self.hostname = hostname
     self.port = port
     self.authUser = authUser
-    self.authPassword
+    self.authPassword = authPassword
     self.serverSocket = s
   def run(self):
     s.bind((self.hostname,self.port))
     s.listen(5)
     while True:
-      cs,address = s.accept()
-      return cs , address
+      if self.authUser == None and self.authPassword == None:
+        cs,address = s.accept()
+        return cs , address
+      else:
+        user = s.recv(1024).decode("utf-8")
+        pw = s.recv(1024).decode("utf-8")
+        u = user.split(" ")
+        p = pw.split(" ")
+        if u[0] == "AUTH-USER" and p[1] == "AUTH-PW":
+          if u[1] == self.authUser and p[1] == self.authPassword:
+            print("ok")
+          else:
+            print("Cannot assign the user detail")
+        else:
+          print("Not the wtps format")
   def stop(self):
     self.serverSocket.close()
