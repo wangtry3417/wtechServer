@@ -18,8 +18,8 @@ class createServer(object):
         return cs , address
       else:
         cs,address = s.accept()
-        user = s.recv(1024).decode("utf-8")
-        pw = s.recv(1024).decode("utf-8")
+        user = cs.recv(1024).decode("utf-8")
+        pw = cs.recv(1024).decode("utf-8")
         u = user.split(" ")
         p = pw.split(" ")
         if u[0] == "AUTH-USER" and p[0] == "AUTH-PW":
