@@ -17,6 +17,7 @@ class createServer(object):
         cs,address = s.accept()
         return cs , address
       else:
+        cs,address = s.accept()
         user = s.recv(1024).decode("utf-8")
         pw = s.recv(1024).decode("utf-8")
         u = user.split(" ")
