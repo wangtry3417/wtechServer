@@ -13,6 +13,5 @@ setup(
         'cryptography',
         'requests',
         'random2',
-        'discord'
     ],
 )
