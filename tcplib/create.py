@@ -31,3 +31,5 @@ class createServer(object):
           print("Not the wtps format")
   def stop(self):
     self.serverSocket.close()
+  def send(self,things : bytes):
+    self.serverSocket.send(things)
